@@ -9,3 +9,58 @@ ul {
     margin: 0;
     padding: 0;
 }
+
+img {
+    width: 350px; 
+}
+
+#projectsPage {
+    max-width: 1150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+#projectsPage::after {
+    content: "";
+    flex: auto;
+    margin-left: 0px;
+}
+
+.projectsCard {
+    background-color: beige;
+    width: 350px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    box-shadow: 0px 3px 4px black;
+}
+
+#projectTextBlock {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+
+}
+
+#boldText {
+    font-weight: bold;
+}
+
+#projectDesc {
+    margin-bottom: 10px;
+}
+
+#projectTech {
+    margin-bottom: 10px;
+}
+
+#projectUrl {
+    margin-bottom: 10px;
+}
+
+#projectGithubUrl {
+    margin-bottom: 10px;
+}
