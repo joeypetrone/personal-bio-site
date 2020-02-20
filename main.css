@@ -4,6 +4,10 @@ body {
     text-align: center;
 }
 
+h1, h2, nav {
+    margin-bottom: 20px;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -14,25 +18,23 @@ img {
     width: 350px; 
 }
 
+.pages {
+    margin-bottom: 30px;
+}
+
 #projectsPage {
     max-width: 1150px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin: auto;
-}
-
-#projectsPage::after {
-    content: "";
-    flex: auto;
-    margin-left: 0px;
 }
 
 .projectsCard {
     background-color: beige;
     width: 350px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 30px;
     padding-bottom: 10px;
     box-shadow: 0px 3px 4px black;
