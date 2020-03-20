@@ -1,0 +1,41 @@
+{
+  "name": "personal-bio-site",
+  "version": "1.0.0",
+  "description": "The purpose of this site is to display information about me (Joey Petrone) pertaining to my journey through the Nashville Software School Fullstack Bootcamp (C#, .Net). This site will display a page that shows my Bio, Technologies learned, Projects, and Contact information. I expect this site to go through many phases as I progress through this course, but genereally it should stay fairly simple and easy to navigate.",
+  "main": "src/javascripts/main.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production --module-bind js=babel-loader",
+    "deploy": "npm run build && firebase deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeypetrone/personal-bio-site.git"
+  },
+  "keywords": [],
+  "author": "Joey Petrone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joeypetrone/personal-bio-site/issues"
+  },
+  "homepage": "https://github.com/joeypetrone/personal-bio-site#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.1",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
