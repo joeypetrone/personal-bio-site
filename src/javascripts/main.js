@@ -3,40 +3,40 @@ import 'bootstrap';
 
 const projects = [
   {
-    title: 'Cool Project 01',
-    screenshot: 'https://designpress.com/wp-content/uploads/2011/05/photo-manipulation-21.jpg',
-    description: 'This is the best project',
-    technologiesUsed: 'HTML, CSS, Vanilla JavaScript, Version Control with Github',
+    title: 'Dino Kennel',
+    screenshot: 'https://github.com/joeypetrone/dino-kennel/raw/master/screenshots/Dino-Kennel-full-page.png',
+    description: 'This project showcases all the vanilla javascript we learned in the foundations milestones. It is designed to be a record keeping application for a dinosaur kennel.',
+    technologiesUsed: 'HTML, CSS, Vanilla JavaScript, Bootstrap, Version Control with Github',
     available: true,
-    url: 'https://github.com/nss-evening-cohort-8/js-part-deux',
-    githubUrl: 'https://github.com/nss-evening-cohort-8/js-part-deux',
+    url: 'https://github.com/joeypetrone/dino-kennel',
+    githubUrl: 'https://github.com/joeypetrone/dino-kennel',
   },
   {
-    title: 'Cool Project 02',
-    screenshot: 'https://img.buzzfeed.com/buzzfeed-static/static/2016-01/12/14/campaign_images/webdr01/27-ridiculously-cool-projects-for-kids-that-adult-2-30779-1452626053-8_dblbig.jpg',
-    description: 'This is the best project',
-    technologiesUsed: 'HTML, CSS, Vanilla JavaScript, Version Control with Github',
+    title: 'Bear Watcher',
+    screenshot: 'https://github.com/joeypetrone/bear-watcher/raw/master/images/screenshots/Bear-Watcher-full-page.png',
+    description: 'This project is used to show javascript modules. It is designed to be a record keeping application for a bears catching fish.',
+    technologiesUsed: 'HTML, CSS, Vanilla JavaScript, Bootstrap, JavaScript ES6 Modules, Version Control with Github',
     available: true,
-    url: 'https://github.com/nss-evening-cohort-8/js-part-deux',
-    githubUrl: 'https://github.com/nss-evening-cohort-8/js-part-deux',
+    url: 'https://github.com/joeypetrone/bear-watcher',
+    githubUrl: 'https://github.com/joeypetrone/bear-watcher',
   },
   {
-    title: 'Cool Project 03',
-    screenshot: 'https://re-nourish.org/wp-content/uploads/2019/12/Illustration_2_-_Design_StrategiesWEB-600x400.jpg',
-    description: 'This is the best project',
-    technologiesUsed: 'HTML, CSS, Vanilla JavaScript, Version Control with Github',
+    title: 'Sorting Hat',
+    screenshot: 'https://github.com/joeypetrone/sorting-hat/raw/master/screenshots/Sorting-Hat-01.png',
+    description: 'This project is an exploration into the bootstrap grid system, buttons, and form control. I used bootstrap jumbotron to display a header introduction to the site. In the jumbotron after the introduction there is a button to join Hogwarts via Sorting Hat. When this button is clicked a bootstrap form and button print to page under the jumbotron. I gave the users the ability to type in thier name in the form and click the button to join. When the button next to the form is clicked, the users name is sent to a sorting function that assigns them to a random house which then prints a card of the user name with house and song. With in the card there is an expel button when clicked adds the user "student" to Voldermort\'s Army a new div under the new student cards. These were created by using event listeners and functions that controled print to DOM.',
+    technologiesUsed: 'HTML, CSS, Vanilla JavaScript, Bootstrap, Version Control with Github',
     available: true,
-    url: 'https://github.com/nss-evening-cohort-8/js-part-deux',
-    githubUrl: 'https://github.com/nss-evening-cohort-8/js-part-deux',
+    url: 'https://github.com/joeypetrone/sorting-hat',
+    githubUrl: 'https://github.com/joeypetrone/sorting-hat',
   },
   {
-    title: 'Cool Project 04',
-    screenshot: 'https://w88yn3okeem3ctd90lixhm8m-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/20140608_untitled_187-1-600x400-800x460.jpg',
-    description: 'This is the best project',
+    title: 'Pet Adoption',
+    screenshot: 'https://github.com/joeypetrone/pet-adoption/raw/master/screenshots/Pet-Adoption.png',
+    description: 'This project is an exploration into how to display and filter cards on a page. I created a card from scratch to display a collection of pets (cats, dogs, and dinosaurs). I also gave our users the ability to filter the pets by cats, dogs, dinos, and all (display all cards). This page was created by passing an array of cards objects through a card builder function that then passed strings of updated html into a function that prints to DOM.',
     technologiesUsed: 'HTML, CSS, Vanilla JavaScript, Version Control with Github',
     available: true,
-    url: 'https://github.com/nss-evening-cohort-8/js-part-deux',
-    githubUrl: 'https://github.com/nss-evening-cohort-8/js-part-deux',
+    url: 'https://github.com/joeypetrone/pet-adoption',
+    githubUrl: 'https://github.com/joeypetrone/pet-adoption',
   },
 ];
 
@@ -50,16 +50,16 @@ const createProjectCards = () => {
   let domString = '';
   projects.forEach((project) => {
     if (project.available === true) {
-      domString += '<div class="projectsCard">';
-      domString += `  <header id="projectsTitle"><h2>${project.title}</h2></header>`;
-      domString += `      <section id="projectImg"><img src=${project.screenshot} alt="Image of ${project.title}"></section>`;
-      domString += '      <div id="projectTextBlock">';
-      domString += `          <section id="projectDesc"><span id="boldText">Description:</span> ${project.description}</section>`;
-      domString += `          <section id="projectTech"><span id="boldText">Technologies used:</span> ${project.technologiesUsed}</section>`;
-      domString += `          <section id="projectUrl"><span id="boldText">Website link:</span> ${project.url}</section>`;
-      domString += `          <section id="projectGithubUrl"><span id="boldText">Github link:</span> ${project.githubUrl}</section>`;
-      domString += '      </div>';
-      domString += '</div>';
+      domString += ' <div class="card m-2" style="width: 20rem;">';
+      domString += ` <img class="card-img-top" src="${project.screenshot}" alt="Image of ${project.title}">`;
+      domString += ' <div class="card-body">';
+      domString += `   <h5 class="card-title">${project.title}</h5>`;
+      domString += `   <p class="card-text"><span id="boldText">Description:</span>${project.description}</p>`;
+      domString += `   <p class="card-text"><span id="boldText"Technologies used:</span>${project.technologiesUsed}</p>`;
+      domString += `   <p class="card-text"><span id="boldText"><i class="fas fa-window-maximize"></i></span>${project.url}</p>`;
+      domString += `   <p class="card-text"><span id="boldText"><i class="fab fa-github-square"></i></span>${project.githubUrl}</p>`;
+      domString += ' </div>';
+      domString += ' </div>';
     }
   });
   printToDom('projectsPage', domString);
