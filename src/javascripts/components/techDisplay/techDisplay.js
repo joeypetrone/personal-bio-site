@@ -6,10 +6,10 @@ const techSectionBuilder = () => {
   const technologies = techData.getTech();
 
   domString += '<div class="pages" id="technologiesPage">';
-  domString += '<h3>Technologies</h3>';
+  domString += '<h3 class="mb-4">Technologies</h3>';
   domString += '<ul>';
   technologies.forEach((technology) => {
-    domString += `<li>${technology.name}</li>`;
+    domString += `<li class="mb-4">${technology.name}</li>`;
   });
   domString += '</ul>';
   domString += '</div>';
