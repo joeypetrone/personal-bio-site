@@ -6,14 +6,14 @@ const projectsSectionBuilder = () => {
   const projects = projectsData.getProjects();
 
   domString += '<h3 id="projects">Projects</h3>';
-  domString += '<div class="d-flex">';
+  domString += '<div class="d-flex flex-wrap justify-content-center">';
 
   projects.forEach((project) => {
     if (project.available === true) {
       domString += ' <div class="card m-2" style="width: 20rem;">';
+      domString += `<div class="card-header">${project.title}</div>`;
       domString += ` <img class="card-img-top" src="${project.screenshot}" alt="Image of ${project.title}">`;
       domString += ' <div class="card-body">';
-      domString += `   <h5 class="card-title">${project.title}</h5>`;
       domString += `   <p class="card-text"><span id="boldText">Description:</span>${project.description}</p>`;
       domString += `   <p class="card-text"><span id="boldText"Technologies used:</span>${project.technologiesUsed}</p>`;
       domString += `   <p class="card-text"><span id="boldText"><i class="fas fa-window-maximize"></i></span>${project.url}</p>`;
