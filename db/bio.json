@@ -1,0 +1,18 @@
+{
+  "entry01": {
+    "question": "What is your background?",
+    "answer": "I have spent the past 5 years studying computer science while working full-time."
+  },
+  "entry02": {
+    "question": "Why do you want to go into development?",
+    "answer": "I love the idea of being able to create things and learn with others."
+  },
+  "entry03": {
+    "question": "What do you love about development?",
+    "answer": "I love learning and community."
+  },
+  "entry04": {
+    "question": "What do you want to develop?",
+    "answer": "Applications that make life easier and more enjoyable for it's users."
+  }
+}

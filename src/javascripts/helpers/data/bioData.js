@@ -1,22 +1,23 @@
-const bio = [
-  {
-    question: 'What is your background?',
-    answer: 'I have spent the past 5 years studying computer science while working full-time.',
-  },
-  {
-    question: 'Why do you want to go into development?',
-    answer: 'I love the idea of being able to create things and learn with others.',
-  },
-  {
-    question: 'What do you love about development?',
-    answer: 'I love learning and community.',
-  },
-  {
-    question: 'What do you want to develop?',
-    answer: 'Applications that make life easier and more enjoyable for it\'s users.',
-  },
-];
+import axios from 'axios';
+import apiKeys from '../apiKeys.json';
 
-const getBio = () => bio;
+const baseUrl = apiKeys.firebaseKeys.databaseURL;
+
+const getBio = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/bio.json`)
+    .then((response) => {
+      const bio = response.data;
+      const entries = [];
+
+      if (bio) {
+        Object.keys(bio).forEach((entryId) => {
+          bio[entryId].id = entryId;
+          entries.push(bio[entryId]);
+        });
+      }
+      resolve(entries);
+    })
+    .catch((err) => reject(err));
+});
 
 export default { getBio };
