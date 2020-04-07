@@ -1,6 +1,8 @@
 import utils from '../../helpers/utils';
 import projectsData from '../../helpers/data/projectsData';
 
+import './projectsDisplay.scss';
+
 const projectsSectionBuilder = () => {
   let domString = '';
   const projects = projectsData.getProjects();
@@ -14,10 +16,12 @@ const projectsSectionBuilder = () => {
       domString += `<div class="card-header">${project.title}</div>`;
       domString += ` <img class="card-img-top" src="${project.screenshot}" alt="Image of ${project.title}">`;
       domString += ' <div class="card-body">';
-      domString += `   <p class="card-text"><span id="boldText">Description:</span>${project.description}</p>`;
-      domString += `   <p class="card-text"><span id="boldText"Technologies used:</span>${project.technologiesUsed}</p>`;
-      domString += `   <p class="card-text"><span id="boldText"><i class="fas fa-window-maximize"></i></span>${project.url}</p>`;
-      domString += `   <p class="card-text"><span id="boldText"><i class="fab fa-github-square"></i></span>${project.githubUrl}</p>`;
+      domString += `   <p class="card-text mb-4"><span class="font-weight-bold">Description:</span> ${project.description}</p>`;
+      domString += `   <p class="card-text font-weight-bold text-center">${project.technologiesUsed}</p>`;
+      domString += '   <p class="card-text font-weight-bold mb-0 text-center"><i class="fas fa-window-maximize"></i></p>';
+      domString += `   <p class="card-text font-weight-bold text-center"><a class="link" target="_blank" href="${project.url}">  ${project.url}</a></<p>`;
+      domString += '   <p class="card-text font-weight-bold mb-0 text-center"><i class="fab fa-github-square"></i></p>';
+      domString += `   <p class="card-text font-weight-bold mb-0 text-center"><a class="link" target="_blank" href="${project.githubUrl}">  ${project.githubUrl}</a></p>`;
       domString += ' </div>';
       domString += ' </div>';
     }

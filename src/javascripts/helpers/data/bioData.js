@@ -11,6 +11,10 @@ const bio = [
     question: 'What do you love about development?',
     answer: 'I love learning and community.',
   },
+  {
+    question: 'What do you want to develop?',
+    answer: 'Applications that make life easier and more enjoyable for it\'s users.',
+  },
 ];
 
 const getBio = () => bio;
