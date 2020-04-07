@@ -1,0 +1,32 @@
+{
+  "tech01": {
+    "name": "HTML5"
+  },
+  "tech02": {
+    "name": "CSS3"
+  },
+  "tech03": {
+    "name": "Vanilla Javascript"
+  },
+  "tech04": {
+    "name": "Javascript ES6"
+  },
+  "tech05": {
+    "name": "Bootstrap"
+  },
+  "tech06": {
+    "name": "Sass"
+  },
+  "tech07": {
+    "name": "React"
+  },
+  "tech08": {
+    "name": "Webpack"
+  },
+  "tech09": {
+    "name": "Firebase"
+  },
+  "tech10": {
+    "name": "Google Autentication"
+  }
+}
