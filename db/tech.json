@@ -28,5 +28,20 @@
   },
   "tech10": {
     "name": "Google Autentication"
+  },
+  "tech11": {
+    "name": "C#"
+  },
+  "tech12": {
+    "name": ".Net Core"
+  },
+  "tech13": {
+    "name": "T-SQL"
+  },
+  "tech14": {
+    "name": "OutSystems"
+  },
+  "tech15": {
+    "name": "Azure"
   }
 }
