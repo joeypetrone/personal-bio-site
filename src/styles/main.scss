@@ -738,6 +738,12 @@ html:has(.resume-modal[open]) {
     padding-bottom: 32px;
   }
 
+  // The email pair takes a full row, so LinkedIn, GitHub and Resume always share
+  // the row below (otherwise LinkedIn can squeeze up beside the email pair).
+  .hero .button-pair {
+    flex-basis: 100%;
+  }
+
   // LinkedIn and GitHub show just the logo, so the hero buttons fit on fewer rows.
   // The label is hidden from view but screen readers still say "LinkedIn, link".
   .button.icon-only-phone {
