@@ -1,9 +1,11 @@
+import './helpers/jqueryGlobal';
+import 'bootstrap';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '../styles/main.scss';
+
 import bioDisplay from './components/bioDisplay/bioDisplay';
 import techDisplay from './components/techDisplay/techDisplay';
 import projectsDisplay from './components/projectsDisplay/projectsDisplay';
-
-import '../styles/main.scss';
-import 'bootstrap';
 
 const bioLoader = () => {
   $('#bio-container').removeClass('hide');
