@@ -4,14 +4,14 @@
 Personal portfolio site for Joey Petrone, OutSystems lead developer and full-stack developer. Live at [joeydev.net](https://joeydev.net).
 
 ## Screenshots
-### Bio Page (Home)
-![Main Screen](./screenshots/bio-page.png)
+### Home (light mode)
+![Home page in light mode: name, role, and contact buttons, with About cards below](./screenshots/home-light.png)
 
-### Technologies Page
-![Main Screen](./screenshots/technologies-page.png)
+### Projects (dark mode)
+![Projects section in dark mode: three project cards with screenshots, tech tags, and links](./screenshots/projects-dark.png)
 
-### Projects Page
-![Main Screen](./screenshots/projects-page.png)
+### Phone
+<img src="./screenshots/mobile-light.png" alt="Home page on a phone in light mode" width="300">
 
 ## How to Run
 1. Clone this repo, run `nvm use 22`, then `npm install`

@@ -23,10 +23,17 @@ const init = () => {
   theme.setUpThemeToggle();
   contactPanel.setUpContactPanel();
   copyEmail.setUpCopyEmail();
-  about.buildAbout();
-  skills.buildSkills();
-  projects.buildProjects();
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Build the sections, then honor a link like joeydev.net/#projects.
+  // The browser tries to jump there before these sections are filled in,
+  // so it lands in the wrong place; jump again once they're built.
+  Promise.all([about.buildAbout(), skills.buildSkills(), projects.buildProjects()])
+    .then(() => {
+      const target = window.location.hash && document.querySelector(window.location.hash);
+      if (target) target.scrollIntoView({ behavior: 'instant' });
+    })
+    .catch((err) => console.error('problem building sections', err));
 };
 
 init();
