@@ -102,3 +102,23 @@ footer .footer-links {
       margin: 0 12px;
     }
 }
+
+// Phones: stack the name above full-width nav buttons, all centered.
+@media (max-width: 575.98px) {
+    nav.navbar {
+      flex-direction: column;
+    }
+
+    nav .brand {
+      text-align: center !important;
+    }
+
+    nav .btn-group {
+      width: 100%;
+      margin: 10px 0 0 !important;
+
+      .btn {
+        flex: 1;
+      }
+    }
+}
