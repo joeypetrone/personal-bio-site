@@ -4,6 +4,9 @@
     "sourceType": "module"
   },
   "extends": "airbnb-base",
+  "env": {
+    "browser": true
+  },
   "globals": {
     "document": true,
     "window": true,

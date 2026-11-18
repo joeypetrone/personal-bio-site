@@ -150,6 +150,8 @@ h1, h2, h3 {
 }
 
 .button {
+  font: inherit;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -174,6 +176,65 @@ h1, h2, h3 {
       filter: brightness(1.1);
     }
   }
+}
+
+// "Email me" + "Copy email" joined into one split button
+.button-pair {
+  display: inline-flex;
+
+  .button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+    min-width: 8.5em; // same width for "Copy email" and "Copied", so nothing shifts
+    justify-content: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .button-pair .button:last-child {
+    border-left-color: rgba(0, 0, 0, 0.25);
+  }
+}
+
+// Small icon-only button (the copy button in the footer)
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+
+  &.copied {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+// Hidden on screen, still read by screen readers
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 // ---------- Sections ----------
@@ -332,12 +393,21 @@ h1, h2, h3 {
   flex-wrap: wrap;
   gap: 24px;
 
+  li {
+    display: flex;
+    align-items: center;
+  }
+
   a {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     color: var(--text);
   }
+}
+
+.footer-email {
+  gap: 8px;
 }
 
 .copyright {
