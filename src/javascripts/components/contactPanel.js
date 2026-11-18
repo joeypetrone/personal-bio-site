@@ -35,9 +35,15 @@ const setUpContactPanel = () => {
 
   panel.querySelector('.contact-close').addEventListener('click', closePanel);
 
-  // A click on the dimmed area outside the panel lands on the <dialog> itself: close it.
+  // Close only when the click is outside the panel's box (on the dimmed page).
+  // Clicks on empty space inside the panel also land on the <dialog> itself,
+  // so check where the click happened, not just what was clicked.
   panel.addEventListener('click', (event) => {
-    if (event.target === panel) closePanel();
+    if (event.target !== panel) return;
+    const box = panel.getBoundingClientRect();
+    const inside = event.clientX >= box.left && event.clientX <= box.right
+      && event.clientY >= box.top && event.clientY <= box.bottom;
+    if (!inside) closePanel();
   });
 
   // Esc normally closes a <dialog> instantly; slide it out instead.
