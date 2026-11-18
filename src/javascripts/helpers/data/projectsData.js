@@ -1,23 +1,9 @@
-import axios from 'axios';
-import apiKeys from '../apiKeys.json';
+import projects from '../../../../db/projects.json';
 
-const baseUrl = apiKeys.firebaseKeys.databaseURL;
-
-const getProjects = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/projects.json`)
-    .then((response) => {
-      const projects = response.data;
-      const items = [];
-
-      if (projects) {
-        Object.keys(projects).forEach((itemId) => {
-          projects[itemId].id = itemId;
-          items.push(projects[itemId]);
-        });
-      }
-      resolve(items);
-    })
-    .catch((err) => reject(err));
-});
+// Content lives in db/projects.json and is bundled into the build.
+// Each entry gets its key as an id, then the list is returned in key order.
+const getProjects = () => Promise.resolve(
+  Object.keys(projects).sort().map((id) => ({ ...projects[id], id })),
+);
 
 export default { getProjects };

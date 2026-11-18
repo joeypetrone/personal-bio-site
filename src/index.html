@@ -1,21 +1,25 @@
-<!DOCTYPE html:5>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="/src/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Website for Joey Petrone" />
-    <meta name="title" property="og:title" content="Joey Dev Dot Net" />
+    <title>Joey Petrone | OutSystems Lead Developer</title>
+    <meta name="description" content="Joey Petrone, OutSystems lead developer in Philadelphia. C#/.NET, React, SQL, and AI-assisted development." />
+    <meta name="title" property="og:title" content="Joey Petrone | OutSystems Lead Developer" />
     <meta property="og:type" content="Website" />
     <meta name="image" property="og:image" content="https://raw.githubusercontent.com/joeypetrone/personal-bio-site/master/screenshots/bio-page.png" />
-    <meta name="description" property="og:description" content="Personal Website for Joey Petrone" />
+    <meta name="description" property="og:description" content="Joey Petrone, OutSystems lead developer in Philadelphia. C#/.NET, React, SQL, and AI-assisted development." />
     <meta name="author" content="Joey Petrone" />
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700|Rubik&display=swap" rel="stylesheet">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
-<body class="bg-light">
+<body class="bg-light d-flex flex-column min-vh-100">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-      <a class="navbar-brand">Joey Petrone</a><div>{software developer}</div>
+    <nav class="navbar navbar-light bg-light border-bottom">
+      <div class="brand text-left">
+        <a class="navbar-brand mr-0" href="/">Joey Petrone</a>
+        <div class="tagline">OutSystems Lead Developer</div>
+      </div>
       <div class="btn-group btn-group-toggle ml-auto" data-toggle="buttons">
         <label class="btn btn-light border active">
           <input type="radio" name="options" id="bio-button" autocomplete="off" checked> Bio
@@ -31,23 +35,21 @@
     <!-- End Navigation -->
   
     <!-- Primary View -->
-    <div id="bio-container"></div>
-    <div id="tech-container" class="hide"></div>
-    <div id="projects-container" class="hide"></div>
+    <main class="flex-grow-1 pb-4">
+      <div id="bio-container"></div>
+      <div id="tech-container" class="hide"></div>
+      <div id="projects-container" class="hide"></div>
+    </main>
     <!-- End Primary View -->
   
     <!-- Footer -->
-    <footer class="navbar navbar-light bg-light border-top">
-        <h3 class="mb-0">Contact</h3>
-        <ul class="text-left">
-          <li><i class="fas fa-envelope"></i> <a class="link" href="mailto:joey.petrone@gmail.com">  joey.petrone@gmail.com</a></li>
-          <li><i class="fab fa-linkedin"></i> <a class="link" href="https://www.linkedin.com/in/joeypetrone">  https://www.linkedin.com/in/joeypetrone</a></li>
-        </ul>
-        <ul class="text-left">
-          <li><i class="fab fa-twitter-square"></i> <a class="link" href="https://twitter.com/JoeyPetrone">  https://twitter.com/JoeyPetrone</a></li>
-          <li><i class="fab fa-github-square"></i> <a class="link" href="https://github.com/joeypetrone">  https://github.com/joeypetrone</a></li>
-        </ul>
-        <p class="mb-1">©<script>document.write(new Date().getFullYear())</script> by Joey Petrone</p>   
+    <footer class="border-top py-3">
+      <ul class="footer-links mb-2">
+        <li><a class="link" href="mailto:joey.petrone@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+        <li><a class="link" href="https://www.linkedin.com/in/joeypetrone" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a class="link" href="https://github.com/joeypetrone" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a></li>
+      </ul>
+      <p class="mb-0 small text-muted">©<script>document.write(new Date().getFullYear())</script> Joey Petrone</p>
     </footer>
     <!-- End Footer -->
   </body>

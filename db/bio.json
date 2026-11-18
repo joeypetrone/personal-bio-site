@@ -1,18 +1,14 @@
 {
   "entry01": {
-    "question": "What is your background?",
-    "answer": "I have spent the past 5 years studying computer science while working full-time."
+    "question": "About me",
+    "answer": "I'm a lead developer in Philadelphia with 5+ years building in OutSystems, along with C#/.NET, JavaScript, and SQL."
   },
   "entry02": {
-    "question": "Why do you want to go into development?",
-    "answer": "I love the idea of being able to create things and learn with others."
+    "question": "At Wodify",
+    "answer": "At Wodify, a gym management platform, I led development, moved about 500 million workout records to Firestore, and brought AI-assisted development with Claude into how we shipped features."
   },
   "entry03": {
-    "question": "What do you love about development?",
-    "answer": "I love learning and community."
-  },
-  "entry04": {
-    "question": "What do you want to develop?",
-    "answer": "Applications that make life easier and more enjoyable for it's users."
+    "question": "What I'm doing now",
+    "answer": "Right now I'm building side projects in C#/.NET and React, working on a browser RPG, and looking for my next role."
   }
 }

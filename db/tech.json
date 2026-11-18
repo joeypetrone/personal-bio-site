@@ -1,47 +1,29 @@
 {
   "tech01": {
-    "name": "HTML5"
+    "name": "OutSystems (Reactive, Traditional Web, Mobile)"
   },
   "tech02": {
-    "name": "CSS3"
+    "name": "C# / .NET"
   },
   "tech03": {
-    "name": "Vanilla Javascript"
+    "name": "JavaScript / TypeScript"
   },
   "tech04": {
-    "name": "Javascript ES6"
-  },
-  "tech05": {
-    "name": "Bootstrap"
-  },
-  "tech06": {
-    "name": "Sass"
-  },
-  "tech07": {
     "name": "React"
   },
+  "tech05": {
+    "name": "SQL"
+  },
+  "tech06": {
+    "name": "Firestore / Firebase"
+  },
+  "tech07": {
+    "name": "REST API integration"
+  },
   "tech08": {
-    "name": "Webpack"
+    "name": "AI-assisted development (Claude, Claude Code, MCP)"
   },
   "tech09": {
-    "name": "Firebase"
-  },
-  "tech10": {
-    "name": "Google Autentication"
-  },
-  "tech11": {
-    "name": "C#"
-  },
-  "tech12": {
-    "name": ".Net Core"
-  },
-  "tech13": {
-    "name": "T-SQL"
-  },
-  "tech14": {
-    "name": "OutSystems"
-  },
-  "tech15": {
-    "name": "Azure"
+    "name": "HTML / CSS / Sass"
   }
 }

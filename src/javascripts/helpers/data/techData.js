@@ -1,23 +1,9 @@
-import axios from 'axios';
-import apiKeys from '../apiKeys.json';
+import tech from '../../../../db/tech.json';
 
-const baseUrl = apiKeys.firebaseKeys.databaseURL;
-
-const getTech = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/tech.json`)
-    .then((response) => {
-      const tech = response.data;
-      const tools = [];
-
-      if (tech) {
-        Object.keys(tech).forEach((toolId) => {
-          tech[toolId].id = toolId;
-          tools.push(tech[toolId]);
-        });
-      }
-      resolve(tools);
-    })
-    .catch((err) => reject(err));
-});
+// Content lives in db/tech.json and is bundled into the build.
+// Each entry gets its key as an id, then the list is returned in key order.
+const getTech = () => Promise.resolve(
+  Object.keys(tech).sort().map((id) => ({ ...tech[id], id })),
+);
 
 export default { getTech };

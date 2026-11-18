@@ -82,3 +82,23 @@ img {
 .link, a:hover {
   color: black;
 }
+
+nav .brand {
+    line-height: 1.2;
+
+    .tagline {
+      font-size: 14px;
+      font-weight: normal;
+      color: #6c757d;
+    }
+}
+
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    li {
+      margin: 0 12px;
+    }
+}

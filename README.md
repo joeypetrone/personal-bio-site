@@ -1,7 +1,7 @@
 # Personal Bio Site
 
 ## Description 
-The purpose of this site is to display information about me (Joey Petrone) pertaining to my journey through the Nashville Software School Fullstack Bootcamp (C#, .Net). This site will display a page that shows my Bio, Technologies learned, Projects, and Contact information. I expect this site to go through many phases as I progress through this course, but genereally it should stay fairly simple and easy to navigate. 
+Personal portfolio site for Joey Petrone, OutSystems lead developer and full-stack developer. Live at [joeydev.net](https://joeydev.net).
 
 ## Screenshots
 ### Bio Page (Home)
@@ -14,8 +14,19 @@ The purpose of this site is to display information about me (Joey Petrone) perta
 ![Main Screen](./screenshots/projects-page.png)
 
 ## How to Run
-1. Clone down this repo
-2. Make sure you have http-server installed via npm. If not get it
-[HERE](https://www.npmjs.com/package/http-server)
-3. On your command line run `hs -p 8080`
-4. In your browser go to `https://localhost:8080`
+1. Clone this repo and run `npm install` (Node 18)
+2. Run `npm start`, then open http://localhost:8080
+
+## Editing content
+All content is in the repo and goes live with a deploy.
+
+| What | Where |
+|---|---|
+| Bio | `db/bio.json` |
+| Technologies | `db/tech.json` |
+| Projects | `db/projects.json` (set `"available": false` to hide one) |
+| Tagline, contact links, page title, meta description | `src/index.html` |
+
+Entries show in key order (`entry01`, `entry02`, ...). The copyright year updates itself.
+
+To publish: check it with `npm start`, commit, then run `npm run deploy`.

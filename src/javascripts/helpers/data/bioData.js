@@ -1,23 +1,9 @@
-import axios from 'axios';
-import apiKeys from '../apiKeys.json';
+import bio from '../../../../db/bio.json';
 
-const baseUrl = apiKeys.firebaseKeys.databaseURL;
-
-const getBio = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/bio.json`)
-    .then((response) => {
-      const bio = response.data;
-      const entries = [];
-
-      if (bio) {
-        Object.keys(bio).forEach((entryId) => {
-          bio[entryId].id = entryId;
-          entries.push(bio[entryId]);
-        });
-      }
-      resolve(entries);
-    })
-    .catch((err) => reject(err));
-});
+// Content lives in db/bio.json and is bundled into the build.
+// Each entry gets its key as an id, then the list is returned in key order.
+const getBio = () => Promise.resolve(
+  Object.keys(bio).sort().map((id) => ({ ...bio[id], id })),
+);
 
 export default { getBio };
