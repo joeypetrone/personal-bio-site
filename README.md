@@ -25,7 +25,8 @@ All content is in the repo and goes live with a deploy.
 | Bio | `db/bio.json` |
 | Technologies | `db/tech.json` |
 | Projects | `db/projects.json` (set `"available": false` to hide one) |
-| Tagline, contact links, page title, meta description | `index.html` |
+| Name, role line, location, contact links, page title, meta description | `index.html` |
+| Colors and layout | `src/styles/main.scss` (colors are at the top) |
 
 Entries show in key order (`entry01`, `entry02`, ...). The copyright year updates itself.
 

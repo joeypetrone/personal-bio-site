@@ -7,7 +7,6 @@
   "globals": {
     "document": true,
     "window": true,
-    "$": true,
     "XMLHttpRequest": true,
     "allowTemplateLiterals": true
   },
