@@ -1,7 +1,7 @@
 {
   "project01": {
     "title": "SVG Move Studio",
-    "screenshot": "https://i.imgur.com/wryfGJQ.png",
+    "screenshot": "/images/projects/svg-move-studio.webp",
     "description": "A web app for creating custom SVG images with built-in editing tools. Changes show on the canvas in real time as you edit each field.",
     "technologiesUsed": "React, SVG, C#, .NET Core, T-SQL, Azure, Firebase",
     "available": true,
@@ -10,7 +10,7 @@
   },
   "project02": {
     "title": "Pin Finder",
-    "screenshot": "https://raw.githubusercontent.com/joeypetrone/pin-finder/master/public/images/single-property-view.png",
+    "screenshot": "/images/projects/pin-finder.webp",
     "description": "Built for a land survey technician to find and record each property's corner locations. Uses the Leaflet API to save map locations and set a marker on each corner.",
     "technologiesUsed": "React, Leaflet, Sass, Firebase",
     "available": true,

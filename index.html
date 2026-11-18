@@ -12,6 +12,13 @@
   <meta name="description" content="Joey Petrone, OutSystems lead developer in Philadelphia. C#/.NET, React, SQL, and AI-assisted development.">
   <meta name="author" content="Joey Petrone">
   <meta name="color-scheme" content="light dark">
+  <!-- Apply a saved light/dark choice before the page draws, so it doesn't flash the wrong colors -->
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+    } catch (e) { /* storage blocked: just follow the device setting */ }
+  </script>
   <meta property="og:title" content="Joey Petrone | OutSystems Lead Developer">
   <meta property="og:type" content="website">
   <meta property="og:description" content="Joey Petrone, OutSystems lead developer in Philadelphia. C#/.NET, React, SQL, and AI-assisted development.">
@@ -38,6 +45,15 @@
     <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M20 6 9 17l-5-5"/>
     </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+    </symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18M6 6l12 12"/>
+    </symbol>
     <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/>
     </symbol>
@@ -52,6 +68,13 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
+      <!-- Light/dark switch: the knob slides right for dark mode -->
+      <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode" title="Switch between light and dark mode">
+        <span class="theme-knob" aria-hidden="true">
+          <svg class="icon icon-sun"><use href="#icon-sun"/></svg>
+          <svg class="icon icon-moon"><use href="#icon-moon"/></svg>
+        </span>
+      </button>
     </div>
   </header>
 
@@ -114,8 +137,37 @@
     </div>
   </footer>
 
+  <!-- Contact side panel: the header's Contact link opens it (see components/contactPanel.js) -->
+  <dialog id="contact-panel" class="contact-panel" aria-labelledby="contact-panel-title">
+    <div class="contact-panel-header">
+      <h2 id="contact-panel-title">Get in touch</h2>
+      <button class="icon-button contact-close" type="button" aria-label="Close">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+    </div>
+    <p class="contact-panel-intro">I'm open to new roles. Email is the fastest way to reach me.</p>
+    <div class="contact-panel-links">
+      <div class="button-pair">
+        <a class="button primary" href="mailto:joey.petrone@gmail.com">
+          <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg> joey.petrone@gmail.com
+        </a>
+        <button class="button primary copy-email" type="button" data-email="joey.petrone@gmail.com" title="Copy email address">
+          <svg class="icon" aria-hidden="true"><use href="#icon-copy"/></svg>
+          <span class="copy-label visually-hidden">Copy email</span>
+        </button>
+      </div>
+      <a class="button" href="https://www.linkedin.com/in/joeypetrone" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg> LinkedIn
+      </a>
+      <a class="button" href="https://github.com/joeypetrone" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg> GitHub
+      </a>
+    </div>
+    <p class="copy-status visually-hidden" aria-live="polite"></p>
+  </dialog>
+
   <!-- Screen readers announce "Email copied" from here -->
-  <p id="copy-status" class="visually-hidden" aria-live="polite"></p>
+  <p id="copy-status" class="copy-status visually-hidden" aria-live="polite"></p>
 
   <script type="module" src="/src/javascripts/main.js"></script>
 </body>

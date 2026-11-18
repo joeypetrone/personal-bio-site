@@ -1,5 +1,24 @@
 // ---------- Colors (light mode first, dark mode below) ----------
+// The page follows the visitor's device setting. The header switch sets
+// data-theme="light" or "dark" on <html> to override it.
+@mixin dark-colors {
+  color-scheme: dark;
+  --bg: #141413;
+  --surface: #1d1d1b;
+  --surface-muted: #2a2a27;
+  --text: #ecebe6;
+  --text-muted: #a9a79f;
+  --border: #33322e;
+  --accent: #5dcaa5;
+  --accent-text: #04342c;
+  --split-line: rgba(0, 0, 0, 0.25);
+  --badge-bg: #412402;
+  --badge-text: #fac775;
+}
+
 :root {
+  color-scheme: light;
+  --split-line: rgba(255, 255, 255, 0.35);
   --bg: #fafaf8;
   --surface: #ffffff;
   --surface-muted: #f1efe8;
@@ -18,18 +37,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #141413;
-    --surface: #1d1d1b;
-    --surface-muted: #2a2a27;
-    --text: #ecebe6;
-    --text-muted: #a9a79f;
-    --border: #33322e;
-    --accent: #5dcaa5;
-    --accent-text: #04342c;
-    --badge-bg: #412402;
-    --badge-text: #fac775;
+  :root:not([data-theme="light"]) {
+    @include dark-colors;
   }
+}
+
+:root[data-theme="dark"] {
+  @include dark-colors;
 }
 
 // ---------- Base ----------
@@ -39,6 +53,13 @@
 
 html {
   scroll-behavior: smooth;
+  // Always keep room for the scrollbar, so the page doesn't get wider (and the
+  // cards don't jump) when the contact panel stops the page from scrolling.
+  scrollbar-gutter: stable;
+  // When a nav link jumps to a section, stop just below the sticky header.
+  // --header-height is measured in main.js; 48px is the section's top padding,
+  // so the heading ends up about 20px below the header.
+  scroll-padding-top: calc(var(--header-height, 61px) - 28px);
 }
 
 body {
@@ -109,6 +130,7 @@ h1, h2, h3 {
   margin-left: auto;
   display: flex;
   gap: 24px;
+  white-space: nowrap;
 
   a {
     color: var(--text-muted);
@@ -190,15 +212,9 @@ h1, h2, h3 {
   .button:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    border-left: 1px solid rgba(255, 255, 255, 0.35);
+    border-left: 1px solid var(--split-line);
     min-width: 8.5em; // same width for "Copy email" and "Copied", so nothing shifts
     justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .button-pair .button:last-child {
-    border-left-color: rgba(0, 0, 0, 0.25);
   }
 }
 
@@ -227,6 +243,84 @@ h1, h2, h3 {
   }
 }
 
+// Light/dark switch in the header: a pill-shaped track with a sliding knob.
+// Light mode: knob on the left with a sun. Dark mode: knob on the right with a moon.
+.theme-toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 52px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: #d9d8de;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.theme-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f4f4f2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: #b07a12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+
+  .icon-moon {
+    display: none;
+  }
+}
+
+@mixin toggle-dark-state {
+  .theme-toggle {
+    background: #1b1b19;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6), 0 0 0 1px #4a4945;
+  }
+
+  .theme-knob {
+    transform: translateX(24px);
+    background: #4a4a47;
+    color: #ecebe6;
+
+    .icon-sun {
+      display: none;
+    }
+
+    .icon-moon {
+      display: block;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include toggle-dark-state;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include toggle-dark-state;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-knob {
+    transition: none;
+  }
+}
+
 // Hidden on screen, still read by screen readers
 .visually-hidden {
   position: absolute;
@@ -241,7 +335,6 @@ h1, h2, h3 {
 .section {
   padding-top: 48px;
   padding-bottom: 16px;
-  scroll-margin-top: 72px; // so the sticky header doesn't cover the heading
 
   h2 {
     font-size: 26px;
@@ -314,6 +407,7 @@ h1, h2, h3 {
 .project-image {
   display: block;
   width: 100%;
+  height: auto; // let the 16:10 shape set the height (not the height="400" in the HTML)
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: top;
@@ -371,6 +465,112 @@ h1, h2, h3 {
   }
 }
 
+// ---------- Contact side panel ----------
+.contact-panel {
+  // <dialog> is centered by default; pin it to the right edge, full height
+  margin: 0 0 0 auto;
+  width: min(380px, 90vw);
+  height: 100%;
+  max-height: none;
+  max-width: none;
+  padding: 24px;
+  border: none;
+  border-left: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+
+  &[open] {
+    animation: slide-in 0.25s ease-out;
+  }
+
+  // Added by contactPanel.js while it slides back out
+  &.closing {
+    animation: slide-out 0.25s ease-in forwards;
+  }
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+    animation: fade-in 0.25s ease-out;
+  }
+
+  &.closing::backdrop {
+    animation: fade-out 0.25s ease-in forwards;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-out {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-panel[open],
+  .contact-panel::backdrop {
+    animation: none;
+  }
+}
+
+// Stop the page behind the panel from scrolling while it's open
+html:has(.contact-panel[open]) {
+  overflow: hidden;
+}
+
+.contact-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-panel-intro {
+  margin: 8px 0 24px;
+  color: var(--text-muted);
+}
+
+.contact-panel-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .button-pair {
+    display: flex;
+
+    .button:first-child {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 12px;
+      font-size: 15px; // keeps the whole address on one line on phones
+      overflow-wrap: anywhere;
+    }
+
+    .button:last-child {
+      min-width: 0; // icon only here
+    }
+  }
+}
+
 // ---------- Footer ----------
 .site-footer {
   margin-top: 64px;
@@ -418,15 +618,21 @@ h1, h2, h3 {
 
 // ---------- Phones ----------
 @media (max-width: 600px) {
+  // Phones: name and switch on the first row, section links on the second
   .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    flex-wrap: wrap;
+    gap: 6px 12px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
 
+  .brand {
+    margin-right: auto;
+  }
+
   .nav {
+    order: 3;
+    width: 100%;
     margin-left: 0;
     gap: 20px;
   }
@@ -434,10 +640,6 @@ h1, h2, h3 {
   .hero {
     padding-top: 40px;
     padding-bottom: 32px;
-  }
-
-  .section {
-    scroll-margin-top: 96px;
   }
 
   .project-grid {

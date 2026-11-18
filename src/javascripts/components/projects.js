@@ -8,7 +8,7 @@ const cardImage = (project) => {
   if (!project.screenshot) {
     return `<div class="project-image placeholder" aria-hidden="true">${escapeHtml(project.title)}</div>`;
   }
-  return `<img class="project-image" src="${escapeHtml(project.screenshot)}" alt="Screenshot of ${escapeHtml(project.title)}" loading="lazy">`;
+  return `<img class="project-image" src="${escapeHtml(project.screenshot)}" alt="Screenshot of ${escapeHtml(project.title)}" width="640" height="400" loading="lazy">`;
 };
 
 // "Live site" and "Code" links. Each one only shows when its URL is filled in.
