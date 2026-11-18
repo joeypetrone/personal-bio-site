@@ -218,6 +218,19 @@ h1, h2, h3 {
   }
 }
 
+// Keyboard focus ring for buttons and links: shown for keyboard use only
+.button,
+.icon-button {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
 // Small icon-only button (the copy button in the footer)
 .icon-button {
   display: inline-flex;
@@ -481,6 +494,11 @@ h1, h2, h3 {
 
   &[open] {
     animation: slide-in 0.25s ease-out;
+  }
+
+  // The panel itself takes focus when opened by tap/click; don't outline it
+  &:focus {
+    outline: none;
   }
 
   // Added by contactPanel.js while it slides back out

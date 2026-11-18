@@ -31,6 +31,10 @@ const setUpContactPanel = () => {
   contactLink.addEventListener('click', (event) => {
     event.preventDefault();
     panel.showModal();
+    // Opened by a tap or mouse click (detail > 0): focus the panel itself, so the
+    // X button doesn't get a focus ring (iPhones show a blue one). Opened from the
+    // keyboard (detail = 0): leave focus on X, so keyboard users see where they are.
+    if (event.detail > 0) panel.focus();
   });
 
   panel.querySelector('.contact-close').addEventListener('click', closePanel);
