@@ -29,4 +29,15 @@ All content is in the repo and goes live with a deploy.
 
 Entries show in key order (`entry01`, `entry02`, ...). The copyright year updates itself.
 
-To publish: check it with `npm start`, commit, then run `npm run deploy`.
+## Publishing
+1. Check the change locally with `npm start`
+2. Commit and push to `master`
+3. Build: `npm run build`
+4. Deploy:
+   ```
+   nvm use 22
+   firebase deploy
+   nvm use 18
+   ```
+
+The site builds on Node 18, but the Firebase CLI needs Node 22, so deploying switches versions briefly. This goes away when the project moves to Node 22.
