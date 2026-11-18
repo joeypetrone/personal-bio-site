@@ -33,7 +33,7 @@ Entries show in key order (`entry01`, `entry02`, ...). The copyright year update
 
 ## Publishing
 1. Check the change locally with `npm start`
-2. Commit and push to `master`
+2. Commit and push to `main`
 3. Build: `npm run build` (output goes to `dist/`)
 4. Optional: `npm run preview` to check the built site
 5. Deploy: `firebase deploy`
