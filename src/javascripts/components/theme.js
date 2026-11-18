@@ -19,7 +19,7 @@ const setUpThemeToggle = () => {
     updateSwitch();
     try {
       localStorage.setItem('theme', next);
-    } catch (e) {
+    } catch {
       // Storage blocked (private window etc.): the switch still works for this visit.
     }
   });
