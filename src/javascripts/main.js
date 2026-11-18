@@ -6,6 +6,7 @@ import projects from './components/projects';
 import copyEmail from './components/copyEmail';
 import theme from './components/theme';
 import contactPanel from './components/contactPanel';
+import resumeModal from './components/resumeModal';
 
 // Share the sticky header's height with the CSS, so jumping to a section
 // stops right below it. It changes when the window is resized.
@@ -22,6 +23,7 @@ const init = () => {
   trackHeaderHeight();
   theme.setUpThemeToggle();
   contactPanel.setUpContactPanel();
+  resumeModal.setUpResumeModal();
   copyEmail.setUpCopyEmail();
   document.getElementById('year').textContent = new Date().getFullYear();
 

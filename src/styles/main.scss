@@ -589,6 +589,84 @@ html:has(.contact-panel[open]) {
   }
 }
 
+// ---------- Resume modal ----------
+.resume-modal {
+  width: min(880px, 92vw);
+  height: min(1100px, 92vh);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+
+  // Only when open: a closed <dialog> must stay display: none
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    animation: fade-in 0.2s ease-out;
+  }
+
+  // The modal itself takes focus when opened by tap/click; don't outline it
+  &:focus {
+    outline: none;
+  }
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+    animation: fade-in 0.2s ease-out;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-modal[open],
+  .resume-modal::backdrop {
+    animation: none;
+  }
+}
+
+html:has(.resume-modal[open]) {
+  overflow: hidden;
+}
+
+.resume-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+// The PDF fills the space between the header and the buttons
+.resume-preview {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #fff;
+}
+
+// Only shown on phones, where there's no preview
+.resume-phone-note {
+  display: none;
+  margin: 0;
+  padding: 20px 20px 4px;
+  color: var(--text-muted);
+}
+
+.resume-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+}
+
 // ---------- Footer ----------
 .site-footer {
   margin-top: 64px;
@@ -658,6 +736,47 @@ html:has(.contact-panel[open]) {
   .hero {
     padding-top: 40px;
     padding-bottom: 32px;
+  }
+
+  // LinkedIn and GitHub show just the logo, so the hero buttons fit on fewer rows.
+  // The label is hidden from view but screen readers still say "LinkedIn, link".
+  .button.icon-only-phone {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    justify-content: center;
+
+    .label {
+      // same as .visually-hidden (Sass can't @extend from inside a media query)
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+  }
+
+  // Resume modal: no PDF preview, just the note and two full-width buttons
+  .resume-modal {
+    height: fit-content; // "auto" would stretch a <dialog> to the full screen height
+  }
+
+  .resume-preview {
+    display: none;
+  }
+
+  .resume-phone-note {
+    display: block;
+  }
+
+  .resume-modal-actions {
+    flex-direction: column-reverse; // Download on top, where the thumb reaches first
+    border-top: none;
+
+    .button {
+      justify-content: center;
+    }
   }
 
   .project-grid {
