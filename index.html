@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Favicon: SVG for modern browsers, .ico for older ones, PNG for phone home screens -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0f6e56">
   <title>Joey Petrone | OutSystems Lead Developer</title>
   <meta name="description" content="Joey Petrone, OutSystems lead developer in Philadelphia. C#/.NET, React, SQL, and AI-assisted development.">
   <meta name="author" content="Joey Petrone">
@@ -16,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="top">
   <!-- Icons: defined once here, used anywhere with <svg><use href="#icon-name"/></svg> -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
     <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -51,7 +55,7 @@
     </div>
   </header>
 
-  <main id="top">
+  <main>
     <!-- Hero: edit the name, role line, and location here -->
     <section class="hero container">
       <p class="eyebrow">Philadelphia · Open to new roles</p>
